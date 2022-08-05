@@ -43,7 +43,7 @@ jobs:
         with:
           context: ./api_yamdb
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/sprint16:v1
+          tags: ${{ secrets.DOCKER_USERNAME }}/sprint16:v2
 
 
   deploy:
@@ -59,7 +59,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/sprint16:v1
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/sprint16:v2
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
